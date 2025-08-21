@@ -10,8 +10,8 @@ import {BrandModule}
       type: 'postgres',
       host: 'aws-0-sa-east-1.pooler.supabase.com',
       port: +'5432',
-      username: 'postgres.dwxzvwhkttmmjefhxrfv',
-      password: '123456!',
+      username: 'postgres.voplxfqkgtorzyssxzzl',
+      password: 'Unimater123@!',
       database: 'postgres',
       autoLoadEntities: true,
       synchronize: true
