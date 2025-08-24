@@ -2,22 +2,23 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CategoryModule } from './cases/categories/category.module';
-import {BrandModule}
+import { BrandModule } from './cases/brands/brand.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'aws-0-sa-east-1.pooler.supabase.com',
+      host: 'db.voplxfqkgtorzyssxzzl.supabase.co',
       port: +'5432',
-      username: 'postgres.voplxfqkgtorzyssxzzl',
+      username: 'postgres',
       password: 'Unimater123@!',
       database: 'postgres',
       autoLoadEntities: true,
-      synchronize: true
+      synchronize: true,
+      ssl: { rejectUnauthorized: false }, // Supabase
     }),
     CategoryModule,
-    BrandModule
+    BrandModule,
   ],
 })
-export class AppModule { }
+export class AppModule {}
