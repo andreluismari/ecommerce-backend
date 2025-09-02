@@ -1,6 +1,7 @@
-import { Product } from "src/cases/products/product.entity";
+import { Product } from "../produtcts/product.entity";
 import { Column,  Entity, ManyToOne, PrimaryGeneratedColumn, } from "typeorm";
-import { Order } from "./order.entity";
+import { Order } from "./entities/order.entity";
+
 
 
 
