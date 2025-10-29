@@ -8,6 +8,7 @@ import { CategoryController } from "./category.controller";
 @Module({
     imports: [TypeOrmModule.forFeature([Category])],
     providers: [CategoryService],
-    controllers: [CategoryController]
+    controllers: [CategoryController],
+    exports: [CategoryService],  // Exporte o CategoryService para ser utilizado em outros módulos
 })
 export class CategoryModule { }
