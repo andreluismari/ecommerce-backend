@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CategoryModule } from './cases/categories/category.module';
 import { BrandModule } from './cases/brands/brand.module';
-import { ProductModule } from './cases/produtcts/product.module';
+import { ProductModule } from './cases/products/product.module';
 import { ConfigModule } from '@nestjs/config';
 import { join } from 'path';
 
@@ -45,7 +45,7 @@ import { join } from 'path';
       },
 
       autoLoadEntities: true,
-      synchronize: true,
+      synchronize: false,
     }),
 
     CategoryModule,
