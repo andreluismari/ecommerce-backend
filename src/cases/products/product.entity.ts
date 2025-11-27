@@ -1,27 +1,38 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, JoinColumn, PrimaryGeneratedColumn } from "typeorm";
 import { Category } from "../categories/category.entity";
 import { Brand } from "../brands/brand.entity";
 
-@Entity('products')
-export class Product{
-    @PrimaryGeneratedColumn('uuid')
-    id: string;
+@Entity("products")
+export class Product {
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
-    @Column({nullable: false})
-    name: string;
+  @Column()
+  name: string;
 
-    @Column('text',{nullable: true})
-    description: string;
+  @Column("text", { nullable: true })
+  description: string;
 
-    @Column('decimal',{nullable: false, precision: 10, scale: 2})
-    price: number;
+  @Column("decimal", { precision: 10, scale: 2 })
+  price: number;
 
-    @Column('boolean',{nullable: false, default: true})
-    active: boolean;
+  @Column("boolean", { default: true })
+  active: boolean;
 
-    @ManyToOne(() => Category, {eager: false, nullable: false})
-    category: Category;
+  @Column({ type: "text", nullable: true })
+  image_url: string; // 🔥 nova coluna
 
-    @ManyToOne(() => Brand, {eager: false, nullable: true})
-    brand: Brand;
+  @Column("uuid")
+  categoryId: string;
+
+  @ManyToOne(() => Category)
+  @JoinColumn({ name: "categoryId" })
+  category: Category;
+
+  @Column("uuid")
+  brandId: string;
+
+  @ManyToOne(() => Brand)
+  @JoinColumn({ name: "brandId" })
+  brand: Brand;
 }
